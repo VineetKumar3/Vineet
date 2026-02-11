@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vineet Kumar | Portfolio</title>
     
-    <!-- Tailwind CSS (via CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Custom Config for Tailwind to match the React theme -->
     <script>
         tailwind.config = {
             theme: {
@@ -34,7 +32,6 @@
         }
     </script>
 
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
@@ -60,18 +57,15 @@
 </head>
 <body class="bg-zinc-950 text-gray-300 font-sans antialiased">
 
-    <!-- Navigation -->
     <nav class="fixed w-full z-50 bg-zinc-950/90 backdrop-blur-md border-b border-green-900/30">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
-                <!-- Logo -->
                 <div class="flex-shrink-0 cursor-pointer" onclick="scrollToSection('home')">
                     <span class="text-2xl font-bold text-white tracking-tighter">
                         Vineet <span class="text-green-500">Kumar</span>
                     </span>
                 </div>
                 
-                <!-- Desktop Menu -->
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
                         <a href="#home" class="nav-link text-gray-300 hover:text-green-400 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Home</a>
@@ -90,7 +84,6 @@
                     </div>
                 </div>
 
-                <!-- Mobile Menu Button -->
                 <div class="md:hidden">
                     <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
                         <i data-lucide="menu" class="w-6 h-6" id="menu-icon"></i>
@@ -99,7 +92,6 @@
             </div>
         </div>
 
-        <!-- Mobile Menu Panel -->
         <div id="mobile-menu" class="hidden md:hidden bg-zinc-900 border-b border-green-900/30">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <a href="#home" class="block text-gray-300 hover:text-green-400 px-3 py-2 rounded-md text-base font-medium" onclick="closeMenu()">Home</a>
@@ -112,7 +104,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section id="home" class="pt-32 pb-20 md:pt-40 md:pb-32 px-4 max-w-6xl mx-auto flex flex-col items-start justify-center min-h-[80vh]">
         <div class="space-y-6">
             <p class="text-green-400 font-mono text-lg mb-2">Hi, my name is</p>
@@ -134,7 +125,6 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="about" class="py-20 bg-zinc-900/50">
         <div class="max-w-6xl mx-auto px-4 sm:px-6">
             <div class="flex items-center gap-4 mb-12">
@@ -153,7 +143,6 @@
                     </p>
                 </div>
                 
-                <!-- Education Timeline -->
                 <div class="border-l-2 border-green-900 pl-8 space-y-8">
                     <h3 class="text-xl font-bold text-white flex items-center gap-2">
                         <i data-lucide="book-open" class="text-green-500 w-5 h-5"></i> Education History
@@ -179,7 +168,6 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
     <section id="skills" class="py-20">
         <div class="max-w-6xl mx-auto px-4 sm:px-6">
             <div class="flex items-center gap-4 mb-12">
@@ -189,7 +177,6 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Languages -->
                 <div class="bg-zinc-900 p-6 rounded-lg hover:-translate-y-2 transition-transform duration-300 border border-transparent hover:border-green-500/30 group">
                     <div class="text-green-500 mb-4 group-hover:text-green-400 transition-colors">
                         <i data-lucide="code" class="w-5 h-5"></i>
@@ -202,7 +189,6 @@
                     </ul>
                 </div>
 
-                <!-- Android Dev -->
                 <div class="bg-zinc-900 p-6 rounded-lg hover:-translate-y-2 transition-transform duration-300 border border-transparent hover:border-green-500/30 group">
                     <div class="text-green-500 mb-4 group-hover:text-green-400 transition-colors">
                         <i data-lucide="layers" class="w-5 h-5"></i>
@@ -217,7 +203,6 @@
                     </ul>
                 </div>
 
-                <!-- Cloud & Tools -->
                 <div class="bg-zinc-900 p-6 rounded-lg hover:-translate-y-2 transition-transform duration-300 border border-transparent hover:border-green-500/30 group">
                     <div class="text-green-500 mb-4 group-hover:text-green-400 transition-colors">
                         <i data-lucide="server" class="w-5 h-5"></i>
@@ -232,7 +217,6 @@
                     </ul>
                 </div>
 
-                <!-- Soft Skills -->
                 <div class="bg-zinc-900 p-6 rounded-lg hover:-translate-y-2 transition-transform duration-300 border border-transparent hover:border-green-500/30 group">
                     <div class="text-green-500 mb-4 group-hover:text-green-400 transition-colors">
                         <i data-lucide="briefcase" class="w-5 h-5"></i>
@@ -249,7 +233,6 @@
         </div>
     </section>
 
-    <!-- Experience Section -->
     <section id="experience" class="py-20 bg-zinc-900/50">
         <div class="max-w-6xl mx-auto px-4 sm:px-6">
             <div class="flex items-center gap-4 mb-12">
@@ -290,7 +273,6 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
     <section id="projects" class="py-20">
         <div class="max-w-6xl mx-auto px-4 sm:px-6">
             <div class="flex items-center gap-4 mb-12">
@@ -300,47 +282,44 @@
             </div>
 
             <div class="grid md:grid-cols-2 gap-8">
-                <!-- Project 1: Mentorly -->
                 <div class="bg-zinc-900 rounded-xl overflow-hidden border border-green-900/30 hover:border-green-500/50 transition-all group">
                     <div class="h-48 bg-gradient-to-br from-green-900/20 to-zinc-900 flex items-center justify-center group-hover:bg-green-900/30 transition-colors">
-                        <i data-lucide="terminal" class="w-12 h-12 text-green-500/50 group-hover:text-green-400 transition-colors"></i>
+                        <i data-lucide="check-square" class="w-12 h-12 text-green-500/50 group-hover:text-green-400 transition-colors"></i>
                     </div>
                     
                     <div class="p-6">
                         <div class="flex justify-between items-start mb-4">
                             <div>
-                                <h3 class="text-2xl font-bold text-white group-hover:text-green-400 transition-colors">Mentorly</h3>
-                                <p class="text-xs font-mono text-green-500 mb-2">Mentorship Platform App | April 2025</p>
+                                <h3 class="text-2xl font-bold text-white group-hover:text-green-400 transition-colors">Todo App</h3>
+                                <p class="text-xs font-mono text-green-500 mb-2">Task Management App</p>
                             </div>
                             <div class="flex gap-2">
-                                <a href="#" class="text-gray-400 hover:text-green-400 cursor-pointer"><i data-lucide="github" class="w-5 h-5"></i></a>
-                                <a href="#" class="text-gray-400 hover:text-green-400 cursor-pointer"><i data-lucide="external-link" class="w-5 h-5"></i></a>
+                                <a href="https://github.com/VineetKumar3/Todo.git" target="_blank" class="text-gray-400 hover:text-green-400 cursor-pointer"><i data-lucide="github" class="w-5 h-5"></i></a>
+                                <a href="https://github.com/VineetKumar3/Todo.git" target="_blank" class="text-gray-400 hover:text-green-400 cursor-pointer"><i data-lucide="external-link" class="w-5 h-5"></i></a>
                             </div>
                         </div>
                         
                         <p class="text-gray-400 mb-4 text-sm leading-relaxed">
-                            A mobile-based mentorship platform designed to streamline mentor-mentee interactions through real-time communication and intelligent matching.
+                            A streamlined task management application designed to help users organize their daily activities efficiently with a clean and intuitive interface.
                         </p>
                         
                         <div class="bg-zinc-950 p-4 rounded-lg mb-4">
                             <h4 class="text-sm font-bold text-gray-300 mb-2">Key Features</h4>
                             <ul class="space-y-1">
-                                <li class="text-xs text-gray-500 flex items-center gap-2"><div class="w-1 h-1 bg-green-500 rounded-full"></div> Real-time chat using Firebase Firestore</li>
-                                <li class="text-xs text-gray-500 flex items-center gap-2"><div class="w-1 h-1 bg-green-500 rounded-full"></div> Mentor-mentee matching system</li>
-                                <li class="text-xs text-gray-500 flex items-center gap-2"><div class="w-1 h-1 bg-green-500 rounded-full"></div> Feedback and rating system</li>
+                                <li class="text-xs text-gray-500 flex items-center gap-2"><div class="w-1 h-1 bg-green-500 rounded-full"></div> Create, edit, and delete tasks</li>
+                                <li class="text-xs text-gray-500 flex items-center gap-2"><div class="w-1 h-1 bg-green-500 rounded-full"></div> Task categorization and status tracking</li>
+                                <li class="text-xs text-gray-500 flex items-center gap-2"><div class="w-1 h-1 bg-green-500 rounded-full"></div> Persistent data storage</li>
                             </ul>
                         </div>
 
                         <div class="flex flex-wrap gap-2 mt-auto">
                             <span class="text-xs font-mono text-green-400">Kotlin</span>
-                            <span class="text-xs font-mono text-green-400">Firebase Auth</span>
-                            <span class="text-xs font-mono text-green-400">Firestore</span>
                             <span class="text-xs font-mono text-green-400">Android SDK</span>
+                            <span class="text-xs font-mono text-green-400">Room Database</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 2: NEXUX -->
                 <div class="bg-zinc-900 rounded-xl overflow-hidden border border-green-900/30 hover:border-green-500/50 transition-all group">
                     <div class="h-48 bg-gradient-to-br from-green-900/20 to-zinc-900 flex items-center justify-center group-hover:bg-green-900/30 transition-colors">
                         <i data-lucide="terminal" class="w-12 h-12 text-green-500/50 group-hover:text-green-400 transition-colors"></i>
@@ -353,8 +332,8 @@
                                 <p class="text-xs font-mono text-green-500 mb-2">File Sharing System | Jan 2026</p>
                             </div>
                             <div class="flex gap-2">
-                                <a href="#" class="text-gray-400 hover:text-green-400 cursor-pointer"><i data-lucide="github" class="w-5 h-5"></i></a>
-                                <a href="#" class="text-gray-400 hover:text-green-400 cursor-pointer"><i data-lucide="external-link" class="w-5 h-5"></i></a>
+                                <a href="https://github.com/VineetKumar3/Nexux.git" target="_blank" class="text-gray-400 hover:text-green-400 cursor-pointer"><i data-lucide="github" class="w-5 h-5"></i></a>
+                                <a href="https://github.com/VineetKumar3/Nexux.git" target="_blank" class="text-gray-400 hover:text-green-400 cursor-pointer"><i data-lucide="external-link" class="w-5 h-5"></i></a>
                             </div>
                         </div>
                         
@@ -383,13 +362,11 @@
         </div>
     </section>
 
-    <!-- Achievements & Certificates -->
     <section class="py-20 bg-zinc-900/50">
         <div class="max-w-6xl mx-auto px-4 sm:px-6">
             <h2 class="text-2xl font-bold text-white mb-8 text-center">Achievements & Certifications</h2>
             
             <div class="grid md:grid-cols-2 gap-8">
-                <!-- Achievements -->
                 <div class="bg-zinc-950 p-6 rounded-lg border border-green-900/30">
                     <h3 class="text-xl font-bold text-green-400 mb-4 flex items-center gap-2">
                         <i data-lucide="award" class="w-5 h-5"></i> Recognition
@@ -412,7 +389,6 @@
                     </div>
                 </div>
 
-                <!-- Certificates -->
                 <div class="bg-zinc-950 p-6 rounded-lg border border-green-900/30">
                     <h3 class="text-xl font-bold text-green-400 mb-4 flex items-center gap-2">
                         <i data-lucide="cpu" class="w-5 h-5"></i> Licenses & Certifications
@@ -429,7 +405,6 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="py-24 text-center">
         <div class="max-w-2xl mx-auto px-4">
             <p class="text-green-400 font-mono mb-4">05. What's Next?</p>
@@ -455,7 +430,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="py-6 bg-zinc-950 text-center text-gray-500 text-sm font-mono">
         <div class="flex justify-center gap-6 mb-4 md:hidden">
             <a href="https://github.com/VineetKumar3" class="hover:text-green-400"><i data-lucide="github" class="w-5 h-5"></i></a>
@@ -464,7 +438,6 @@
         <p>Designed & Built by Vineet Kumar</p>
     </footer>
 
-    <!-- JavaScript for Mobile Menu & Icons -->
     <script>
         // Initialize Lucide Icons
         lucide.createIcons();
