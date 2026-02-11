@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vineet Kumar | Portfolio</title>
+    
+    <!-- Tailwind CSS (via CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Config for Tailwind to match the React theme -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        green: {
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            900: '#14532d',
+                        },
+                        zinc: {
+                            900: '#18181b',
+                            950: '#09090b',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Custom scrollbar to match the dark theme */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #09090b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #14532d;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #22c55e;
+        }
+        ::selection {
+            background-color: rgba(34, 197, 94, 0.3);
+            color: #bbf7d0;
+        }
+    </style>
+</head>
+<body class="bg-zinc-950 text-gray-300 font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-zinc-950/90 backdrop-blur-md border-b border-green-900/30">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0 cursor-pointer" onclick="scrollToSection('home')">
+                    <span class="text-2xl font-bold text-white tracking-tighter">
+                        Vineet <span class="text-green-500">Kumar</span>
+                    </span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="nav-link text-gray-300 hover:text-green-400 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Home</a>
+                        <a href="#about" class="nav-link text-gray-300 hover:text-green-400 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">About</a>
+                        <a href="#skills" class="nav-link text-gray-300 hover:text-green-400 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Skills</a>
+                        <a href="#projects" class="nav-link text-gray-300 hover:text-green-400 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Projects</a>
+                        <a href="#experience" class="nav-link text-gray-300 hover:text-green-400 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Experience</a>
+                        <a href="#contact" class="nav-link text-gray-300 hover:text-green-400 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Contact</a>
+                        
+                        <a href="https://drive.google.com/file/d/1o4EUgQRUpkhuJQ9bBoUMnUxXW4BzNYb0/view?usp=drive_link" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors flex items-center gap-2">
+                            <i data-lucide="download" class="w-4 h-4"></i> Resume
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
+                        <i data-lucide="menu" class="w-6 h-6" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-zinc-900 border-b border-green-900/30">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block text-gray-300 hover:text-green-400 px-3 py-2 rounded-md text-base font-medium" onclick="closeMenu()">Home</a>
+                <a href="#about" class="block text-gray-300 hover:text-green-400 px-3 py-2 rounded-md text-base font-medium" onclick="closeMenu()">About</a>
+                <a href="#skills" class="block text-gray-300 hover:text-green-400 px-3 py-2 rounded-md text-base font-medium" onclick="closeMenu()">Skills</a>
+                <a href="#projects" class="block text-gray-300 hover:text-green-400 px-3 py-2 rounded-md text-base font-medium" onclick="closeMenu()">Projects</a>
+                <a href="#experience" class="block text-gray-300 hover:text-green-400 px-3 py-2 rounded-md text-base font-medium" onclick="closeMenu()">Experience</a>
+                <a href="#contact" class="block text-gray-300 hover:text-green-400 px-3 py-2 rounded-md text-base font-medium" onclick="closeMenu()">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 md:pt-40 md:pb-32 px-4 max-w-6xl mx-auto flex flex-col items-start justify-center min-h-[80vh]">
+        <div class="space-y-6">
+            <p class="text-green-400 font-mono text-lg mb-2">Hi, my name is</p>
+            <h1 class="text-5xl md:text-7xl font-bold text-white tracking-tight">Vineet Kumar.</h1>
+            <h2 class="text-4xl md:text-6xl font-bold text-gray-400 tracking-tight">I build things for Android & Cloud.</h2>
+            <p class="max-w-xl text-gray-400 text-lg leading-relaxed">
+                I'm a software engineer specializing in building exceptional digital experiences using <span class="text-green-400">Kotlin</span>, <span class="text-green-400">Jetpack Compose</span>, and <span class="text-green-400">AWS</span>. Currently focused on building accessible, human-centered products.
+            </p>
+            <div class="flex flex-wrap gap-4 pt-4">
+                <a href="#projects" class="px-8 py-3 border border-green-500 text-green-400 hover:bg-green-500/10 rounded-md font-mono transition-all duration-300 inline-block">
+                    Check out my work!
+                </a>
+                <div class="flex gap-4 items-center px-4">
+                    <a href="https://github.com/VineetKumar3" target="_blank" class="text-gray-400 hover:text-green-400 transition-colors"><i data-lucide="github" class="w-6 h-6"></i></a>
+                    <a href="https://www.linkedin.com/in/vineet-kumar-10/" target="_blank" class="text-gray-400 hover:text-green-400 transition-colors"><i data-lucide="linkedin" class="w-6 h-6"></i></a>
+                    <a href="mailto:vineetkumar2823@gmail.com" class="text-gray-400 hover:text-green-400 transition-colors"><i data-lucide="mail" class="w-6 h-6"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-zinc-900/50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="flex items-center gap-4 mb-12">
+                <span class="text-green-500 font-mono text-xl">01.</span>
+                <h2 class="text-3xl font-bold text-white">About Me</h2>
+                <div class="h-[1px] bg-green-900/50 flex-grow max-w-xs"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="space-y-4 text-lg">
+                    <p>
+                        Hello! My name is Vineet, and I am a passionate developer dedicated to building robust Android applications and scalable cloud solutions. My expertise lies in crafting modern mobile experiences using Kotlin and Jetpack Compose, while leveraging AWS for secure and efficient cloud infrastructure.
+                    </p>
+                    <p>
+                        I gained valuable industry exposure during my training at <span class="text-green-400">Gokboru Tech</span>, where I designed and implemented cloud storage architectures. I am currently pursuing my B.Tech in CSE at <span class="text-green-400">Lovely Professional University</span>, constantly upskilling in MVVM architecture and cloud security to build impactful digital products.
+                    </p>
+                </div>
+                
+                <!-- Education Timeline -->
+                <div class="border-l-2 border-green-900 pl-8 space-y-8">
+                    <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                        <i data-lucide="book-open" class="text-green-500 w-5 h-5"></i> Education History
+                    </h3>
+                    
+                    <div class="relative">
+                        <div class="absolute -left-[39px] top-1 h-5 w-5 rounded-full border-2 border-green-500 bg-zinc-950"></div>
+                        <h4 class="text-lg font-bold text-gray-200">Lovely Professional University (LPU)</h4>
+                        <p class="text-green-400 font-mono text-sm">B.Tech in Computer Science Engineering</p>
+                        <p class="text-gray-500 text-sm mb-1">2023 - Present</p>
+                        <p class="text-gray-400 text-sm italic">Punjab, India</p>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute -left-[39px] top-1 h-5 w-5 rounded-full border-2 border-green-500 bg-zinc-950"></div>
+                        <h4 class="text-lg font-bold text-gray-200">S.K D.A.V Govt Polytechnic</h4>
+                        <p class="text-green-400 font-mono text-sm">Civil Engineering (8.9 CGPA)</p>
+                        <p class="text-gray-500 text-sm mb-1">2020 - 2023</p>
+                        <p class="text-gray-400 text-sm italic">Rourkela, Odisha</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="flex items-center gap-4 mb-12">
+                <span class="text-green-500 font-mono text-xl">02.</span>
+                <h2 class="text-3xl font-bold text-white">Technical Skills</h2>
+                <div class="h-[1px] bg-green-900/50 flex-grow max-w-xs"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Languages -->
+                <div class="bg-zinc-900 p-6 rounded-lg hover:-translate-y-2 transition-transform duration-300 border border-transparent hover:border-green-500/30 group">
+                    <div class="text-green-500 mb-4 group-hover:text-green-400 transition-colors">
+                        <i data-lucide="code" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-200 mb-4">Languages</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center gap-2 text-gray-400 text-sm"><span class="text-green-500">▹</span> Java</li>
+                        <li class="flex items-center gap-2 text-gray-400 text-sm"><span class="text-green-500">▹</span> C++</li>
+                        <li class="flex items-center gap-2 text-gray-400 text-sm"><span class="text-green-500">▹</span> Kotlin</li>
+                    </ul>
+                </div>
+
+                <!-- Android Dev -->
+                <div class="bg-zinc-900 p-6 rounded-lg hover:-translate-y-2 transition-transform duration-300 border border-transparent hover:border-green-500/30 group">
+                    <div class="text-green-500 mb-4 group-hover:text-green-400 transition-colors">
+                        <i data-lucide="layers" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-200 mb-4">Android Dev</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center gap-2 text-gray-400 text-sm"><span class="text-green-500">▹</span> Jetpack Compose</li>
+                        <li class="flex items-center gap-2 text-gray-400 text-sm"><span class="text-green-500">▹</span> MVVM</li>
+                        <li class="flex items-center gap-2 text-gray-400 text-sm"><span class="text-green-500">▹</span> XML Layouts</li>
+                        <li class="flex items-center gap-2 text-gray-400 text-sm"><span class="text-green-500">▹</span> Retrofit/Networking</li>
+                        <li class="flex items-center gap-2 text-gray-400 text-sm"><span class="text-green-500">▹</span> Room Database</li>
+                    </ul>
+                </div>
+
+                <!-- Cloud & Tools -->
+                <div class="bg-zinc-900 p-6 rounded-lg hover:-translate-y-2 transition-transform duration-300 border border-transparent hover:border-green-500/30 group">
+                    <div class="text-green-500 mb-4 group-hover:text-green-400 transition-colors">
+                        <i data-lucide="server" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-200 mb-4">Cloud & Tools</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center gap-2 text-gray-400 text-sm"><span class="text-green-500">▹</span> AWS (S3, IAM)</li>
+                        <li class="flex items-center gap-2 text-gray-400 text-sm"><span class="text-green-500">▹</span> Azure</li>
+                        <li class="flex items-center gap-2 text-gray-400 text-sm"><span class="text-green-500">▹</span> Docker</li>
+                        <li class="flex items-center gap-2 text-gray-400 text-sm"><span class="text-green-500">▹</span> Android Studio</li>
+                        <li class="flex items-center gap-2 text-gray-400 text-sm"><span class="text-green-500">▹</span> Git</li>
+                    </ul>
+                </div>
+
+                <!-- Soft Skills -->
+                <div class="bg-zinc-900 p-6 rounded-lg hover:-translate-y-2 transition-transform duration-300 border border-transparent hover:border-green-500/30 group">
+                    <div class="text-green-500 mb-4 group-hover:text-green-400 transition-colors">
+                        <i data-lucide="briefcase" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-200 mb-4">Soft Skills</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center gap-2 text-gray-400 text-sm"><span class="text-green-500">▹</span> Problem-Solving</li>
+                        <li class="flex items-center gap-2 text-gray-400 text-sm"><span class="text-green-500">▹</span> Team Leadership</li>
+                        <li class="flex items-center gap-2 text-gray-400 text-sm"><span class="text-green-500">▹</span> Project Management</li>
+                        <li class="flex items-center gap-2 text-gray-400 text-sm"><span class="text-green-500">▹</span> Adaptability</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-zinc-900/50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="flex items-center gap-4 mb-12">
+                <span class="text-green-500 font-mono text-xl">03.</span>
+                <h2 class="text-3xl font-bold text-white">Where I've Worked</h2>
+                <div class="h-[1px] bg-green-900/50 flex-grow max-w-xs"></div>
+            </div>
+
+            <div class="space-y-8">
+                <div class="flex flex-col md:flex-row gap-4 md:gap-8">
+                    <div class="md:w-32 flex-shrink-0">
+                        <span class="font-mono text-green-400 text-sm border border-green-500/30 px-2 py-1 rounded bg-green-500/5">
+                            July 2024
+                        </span>
+                    </div>
+                    <div class="max-w-2xl">
+                        <h3 class="text-2xl font-bold text-white mb-1">
+                            Training <span class="text-green-500">@ Gokboru Tech Pvt. Ltd.</span>
+                        </h3>
+                        <p class="text-gray-400 mb-4">Worked on designing and implementing secure and scalable cloud storage solutions using AWS.</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-start gap-3 text-gray-400">
+                                <span class="text-green-500 mt-1.5 text-xs">▹</span>
+                                <span>Created and configured Amazon S3 buckets for structured data storage.</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-gray-400">
+                                <span class="text-green-500 mt-1.5 text-xs">▹</span>
+                                <span>Implemented IAM policies and roles for secure access control.</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-gray-400">
+                                <span class="text-green-500 mt-1.5 text-xs">▹</span>
+                                <span>Managed bucket permissions and lifecycle policies.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="flex items-center gap-4 mb-12">
+                <span class="text-green-500 font-mono text-xl">04.</span>
+                <h2 class="text-3xl font-bold text-white">Featured Projects</h2>
+                <div class="h-[1px] bg-green-900/50 flex-grow max-w-xs"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Project 1: Mentorly -->
+                <div class="bg-zinc-900 rounded-xl overflow-hidden border border-green-900/30 hover:border-green-500/50 transition-all group">
+                    <div class="h-48 bg-gradient-to-br from-green-900/20 to-zinc-900 flex items-center justify-center group-hover:bg-green-900/30 transition-colors">
+                        <i data-lucide="terminal" class="w-12 h-12 text-green-500/50 group-hover:text-green-400 transition-colors"></i>
+                    </div>
+                    
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-2xl font-bold text-white group-hover:text-green-400 transition-colors">Mentorly</h3>
+                                <p class="text-xs font-mono text-green-500 mb-2">Mentorship Platform App | April 2025</p>
+                            </div>
+                            <div class="flex gap-2">
+                                <a href="#" class="text-gray-400 hover:text-green-400 cursor-pointer"><i data-lucide="github" class="w-5 h-5"></i></a>
+                                <a href="#" class="text-gray-400 hover:text-green-400 cursor-pointer"><i data-lucide="external-link" class="w-5 h-5"></i></a>
+                            </div>
+                        </div>
+                        
+                        <p class="text-gray-400 mb-4 text-sm leading-relaxed">
+                            A mobile-based mentorship platform designed to streamline mentor-mentee interactions through real-time communication and intelligent matching.
+                        </p>
+                        
+                        <div class="bg-zinc-950 p-4 rounded-lg mb-4">
+                            <h4 class="text-sm font-bold text-gray-300 mb-2">Key Features</h4>
+                            <ul class="space-y-1">
+                                <li class="text-xs text-gray-500 flex items-center gap-2"><div class="w-1 h-1 bg-green-500 rounded-full"></div> Real-time chat using Firebase Firestore</li>
+                                <li class="text-xs text-gray-500 flex items-center gap-2"><div class="w-1 h-1 bg-green-500 rounded-full"></div> Mentor-mentee matching system</li>
+                                <li class="text-xs text-gray-500 flex items-center gap-2"><div class="w-1 h-1 bg-green-500 rounded-full"></div> Feedback and rating system</li>
+                            </ul>
+                        </div>
+
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <span class="text-xs font-mono text-green-400">Kotlin</span>
+                            <span class="text-xs font-mono text-green-400">Firebase Auth</span>
+                            <span class="text-xs font-mono text-green-400">Firestore</span>
+                            <span class="text-xs font-mono text-green-400">Android SDK</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: NEXUX -->
+                <div class="bg-zinc-900 rounded-xl overflow-hidden border border-green-900/30 hover:border-green-500/50 transition-all group">
+                    <div class="h-48 bg-gradient-to-br from-green-900/20 to-zinc-900 flex items-center justify-center group-hover:bg-green-900/30 transition-colors">
+                        <i data-lucide="terminal" class="w-12 h-12 text-green-500/50 group-hover:text-green-400 transition-colors"></i>
+                    </div>
+                    
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-2xl font-bold text-white group-hover:text-green-400 transition-colors">NEXUX</h3>
+                                <p class="text-xs font-mono text-green-500 mb-2">File Sharing System | Jan 2026</p>
+                            </div>
+                            <div class="flex gap-2">
+                                <a href="#" class="text-gray-400 hover:text-green-400 cursor-pointer"><i data-lucide="github" class="w-5 h-5"></i></a>
+                                <a href="#" class="text-gray-400 hover:text-green-400 cursor-pointer"><i data-lucide="external-link" class="w-5 h-5"></i></a>
+                            </div>
+                        </div>
+                        
+                        <p class="text-gray-400 mb-4 text-sm leading-relaxed">
+                            A secure file sharing application designed to manage tuition operations efficiently using Azure cloud infrastructure.
+                        </p>
+                        
+                        <div class="bg-zinc-950 p-4 rounded-lg mb-4">
+                            <h4 class="text-sm font-bold text-gray-300 mb-2">Key Features</h4>
+                            <ul class="space-y-1">
+                                <li class="text-xs text-gray-500 flex items-center gap-2"><div class="w-1 h-1 bg-green-500 rounded-full"></div> File upload & sharing system</li>
+                                <li class="text-xs text-gray-500 flex items-center gap-2"><div class="w-1 h-1 bg-green-500 rounded-full"></div> Role-based access control</li>
+                                <li class="text-xs text-gray-500 flex items-center gap-2"><div class="w-1 h-1 bg-green-500 rounded-full"></div> Student record tracking</li>
+                                <li class="text-xs text-gray-500 flex items-center gap-2"><div class="w-1 h-1 bg-green-500 rounded-full"></div> Responsive User Interface</li>
+                            </ul>
+                        </div>
+
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <span class="text-xs font-mono text-green-400">React</span>
+                            <span class="text-xs font-mono text-green-400">JavaScript</span>
+                            <span class="text-xs font-mono text-green-400">Azure</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements & Certificates -->
+    <section class="py-20 bg-zinc-900/50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <h2 class="text-2xl font-bold text-white mb-8 text-center">Achievements & Certifications</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Achievements -->
+                <div class="bg-zinc-950 p-6 rounded-lg border border-green-900/30">
+                    <h3 class="text-xl font-bold text-green-400 mb-4 flex items-center gap-2">
+                        <i data-lucide="award" class="w-5 h-5"></i> Recognition
+                    </h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between items-baseline mb-1">
+                                <h4 class="text-white font-bold">Research Publication</h4>
+                                <span class="text-green-500 font-mono text-sm">Author</span>
+                            </div>
+                            <p class="text-gray-400 text-sm">Written a Research paper on Hybrid CNN-SE Model for Multi-Class Pest Detection in Agriculture.</p>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-baseline mb-1">
+                                <h4 class="text-white font-bold">Build-a-thon 2.0 Hackathon</h4>
+                                <span class="text-green-500 font-mono text-sm">Rank 40th</span>
+                            </div>
+                            <p class="text-gray-400 text-sm">Among 200+ participants in real-world challenges through AI and technology.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificates -->
+                <div class="bg-zinc-950 p-6 rounded-lg border border-green-900/30">
+                    <h3 class="text-xl font-bold text-green-400 mb-4 flex items-center gap-2">
+                        <i data-lucide="cpu" class="w-5 h-5"></i> Licenses & Certifications
+                    </h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3 text-gray-300"><i data-lucide="award" class="w-4 h-4 text-green-600"></i> Android App Development Sprint (Udemy)</li>
+                        <li class="flex items-center gap-3 text-gray-300"><i data-lucide="award" class="w-4 h-4 text-green-600"></i> Introduction to IOT (NPTEL)</li>
+                        <li class="flex items-center gap-3 text-gray-300"><i data-lucide="award" class="w-4 h-4 text-green-600"></i> AWS Internship Certificate</li>
+                        <li class="flex items-center gap-3 text-gray-300"><i data-lucide="award" class="w-4 h-4 text-green-600"></i> C++ Programming (Saylor.org)</li>
+                        <li class="flex items-center gap-3 text-gray-300"><i data-lucide="award" class="w-4 h-4 text-green-600"></i> AutoCAD Designing Tool</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 text-center">
+        <div class="max-w-2xl mx-auto px-4">
+            <p class="text-green-400 font-mono mb-4">05. What's Next?</p>
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Get In Touch</h2>
+            <p class="text-gray-400 text-lg mb-12">
+                I'm currently looking for new opportunities in Android Development and Cloud Engineering. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+            </p>
+            
+            <a href="mailto:vineetkumar2823@gmail.com" class="inline-block px-8 py-4 border border-green-500 text-green-400 hover:bg-green-500/10 rounded font-mono text-sm transition-all duration-300">
+                Say Hello
+            </a>
+
+            <div class="mt-16 flex justify-center gap-8">
+                <a href="https://www.linkedin.com/in/vineet-kumar-10/" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center gap-2 text-gray-500 hover:text-green-400 transition-colors">
+                    <i data-lucide="linkedin" class="w-6 h-6"></i>
+                    <span class="text-xs">LinkedIn</span>
+                </a>
+                <div class="flex flex-col items-center gap-2 text-gray-500 hover:text-green-400 transition-colors">
+                    <i data-lucide="mail" class="w-6 h-6"></i>
+                    <span class="text-xs">vineetkumar2823@gmail.com</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-6 bg-zinc-950 text-center text-gray-500 text-sm font-mono">
+        <div class="flex justify-center gap-6 mb-4 md:hidden">
+            <a href="https://github.com/VineetKumar3" class="hover:text-green-400"><i data-lucide="github" class="w-5 h-5"></i></a>
+            <a href="https://www.linkedin.com/in/vineet-kumar-10/" class="hover:text-green-400"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+        </div>
+        <p>Designed & Built by Vineet Kumar</p>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu & Icons -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const icon = document.getElementById('menu-icon');
+        let isMenuOpen = false;
+
+        btn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                menu.classList.remove('hidden');
+                icon.setAttribute('data-lucide', 'x');
+            } else {
+                menu.classList.add('hidden');
+                icon.setAttribute('data-lucide', 'menu');
+            }
+            lucide.createIcons(); // Re-render icons after change
+        });
+
+        // Close menu when clicking a link
+        function closeMenu() {
+            isMenuOpen = false;
+            menu.classList.add('hidden');
+            icon.setAttribute('data-lucide', 'menu');
+            lucide.createIcons();
+        }
+
+        // Smooth Scrolling for "Home" logo click
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>
